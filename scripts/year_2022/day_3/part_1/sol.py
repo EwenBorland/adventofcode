@@ -9,7 +9,6 @@ def get_lists(line):
 def get_duplicate_items_all(input):
     items = []
     for line in input:
-        line.strip("\n")
         list_1, list_2 = get_lists(line)
         items += get_duplicate_items(list_1, list_2)
     return items

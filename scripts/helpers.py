@@ -6,7 +6,7 @@ def loadInput(year, day, part):
     with open(file_path, 'r') as f:
         file_data = f.readlines()
 
-    return file_data
+    return [l.strip('\n') for l in file_data]
 
 def parse_args():
     if len(sys.argv) != 4:

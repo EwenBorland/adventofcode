@@ -47,7 +47,7 @@ def get_outcome(you_hand, opponent_hand):
             return "win" if you_hand == "A" else "lose"
 
 def parse_line(line):
-    l = line.strip("\n").split(" ")
+    l = line.split(" ")
     return l[0], l[1]
 
 def solution(input):

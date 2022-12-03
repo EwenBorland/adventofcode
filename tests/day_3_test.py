@@ -7,7 +7,7 @@ tests_1 = [
 ]
 
 tests_2 = [
-    (["vJrwpWtwJgWrhcsFMMfFFhFp\n", "jqHRNqRjqzjGDLGLrsFMfFZSrLrFZsSL\n", "PmmdzqPrVvPwwTWBwg\n", "wMqvLMZHhHMvwLHjbvcjnnSBnvTQFn\n", "ttgJtRGJQctTZtZT\n", "CrZsJsPPZsGzwwsLwLmpwMDw\n"], 70)
+    (["vJrwpWtwJgWrhcsFMMfFFhFp", "jqHRNqRjqzjGDLGLrsFMfFZSrLrFZsSL", "PmmdzqPrVvPwwTWBwg", "wMqvLMZHhHMvwLHjbvcjnnSBnvTQFn", "ttgJtRGJQctTZtZT", "CrZsJsPPZsGzwwsLwLmpwMDw"], 70)
 ]
 
 class TestSolution(unittest.TestCase):
