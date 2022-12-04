@@ -15,7 +15,7 @@ class TestSolution(unittest.TestCase):
         for testCase in tests_1:
             self.assertEqual(sol1(testCase[0]), testCase[1])
     
-    def test_day_2_2(self): 
+    def test_day_3_2(self): 
         for testCase in tests_2:
             self.assertEqual(sol2(testCase[0]), testCase[1])
 
