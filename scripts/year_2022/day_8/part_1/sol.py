@@ -18,8 +18,8 @@ def solution(input):
             tree = forest[r][c]
             treesLeft = forest[r][0:c]
             treesRight = forest[r][c+1:columns]
-            treesUp = [forest[r][i] for i in range(0,r)]
-            treesDown = [forest[r][i] for i in range(r+1,rows)]
+            treesUp = [forest[i][c] for i in range(0,r)]
+            treesDown = [forest[i][c] for i in range(r+1,rows)]
             
             seenLeft, seenRight, seenUp, seenDown = True, True, True, True
 

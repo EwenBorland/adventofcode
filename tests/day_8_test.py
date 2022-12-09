@@ -76,14 +76,23 @@ tests_1 = [
         "2211",
         "1211"
         ],11),
+    ([
+        "121",
+        "222",
+        "111",
+        "111"
+        ],11),
 ]
 
 tests_2 = [
-    (["mjqjpqmgbljsphdztnvjfqwrcgsmlb"], 19),
-    (["bvwbjplbgvbhsrlpgdmjqwftvncz"], 23),
-    (["nppdvjthqldpwncqszvftbrmjlhg"], 23),
-    (["nznrnfrfntjfmvfwmzdfjlvtqnbhcprsg"], 29),
-    (["zcfzfwzzqfrljwzlrfnpqdbhtmscgvjw"], 26)
+    ([
+        "30373",
+        "25512",
+        "65332",
+        "33549",
+        "35390"
+        ],
+        8),
 ]
 
 class TestSolution(unittest.TestCase):
