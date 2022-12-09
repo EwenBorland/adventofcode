@@ -12,6 +12,15 @@ def distance(a,b):
         return True
     return False
 
+def getNewKnotPosition(tail, head):
+    d = [0,0]
+    if head[0] > tail[0]: d[0]+=1
+    if head[0] < tail[0]: d[0]-=1
+    if head[1] > tail[1]: d[1]+=1
+    if head[1] < tail[1]: d[1]-=1
+
+    return [tail[0]+d[0],tail[1]+d[1]]
+
 def solution(input):
     offset = 1000
     positionMap = initMap(offset*2)
@@ -23,20 +32,19 @@ def solution(input):
         for _ in range(int(line[2:])):
             match direction:
                 case "U":
-                    newHeadPosition = [headPosition[0],headPosition[1]+1]
+                    headPosition = [headPosition[0],headPosition[1]+1]
                 case "D":
-                    newHeadPosition = [headPosition[0],headPosition[1]-1]
+                    headPosition = [headPosition[0],headPosition[1]-1]
                 case "R":
-                    newHeadPosition = [headPosition[0]+1,headPosition[1]]
+                    headPosition = [headPosition[0]+1,headPosition[1]]
                 case "L":
-                    newHeadPosition = [headPosition[0]-1,headPosition[1]]
+                    headPosition = [headPosition[0]-1,headPosition[1]]
                 case _:
                     print(f"invalid move: {direction}")
 
-            if distance(tailPosition, newHeadPosition):
-                tailPosition = headPosition
+            if distance(tailPosition, headPosition):
+                tailPosition = getNewKnotPosition(tailPosition, headPosition)
 
-            headPosition = newHeadPosition
             # print(f'tail: {tailPosition}, head: {headPosition}, map : {positionMap}')
             positionMap[tailPosition[0]][tailPosition[1]]= True
 

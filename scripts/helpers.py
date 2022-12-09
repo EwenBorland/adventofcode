@@ -1,7 +1,7 @@
 import sys
 
 def loadInput(year, day, part):
-    file_path = f'input/{year}/{day}_{part}.txt'
+    file_path = f'scripts/year_{year}/day_{day}/part_{part}/input.txt'
     
     with open(file_path, 'r') as f:
         file_data = f.readlines()
