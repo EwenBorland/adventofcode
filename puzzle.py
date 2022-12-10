@@ -4,7 +4,7 @@ import importlib
 class Puzzle:
     def __init__(self):
         self.year, self.day, self.part = helpers.parse_args()
-        self.input = helpers.loadInput(self.year, self.day, self.part)
+        self.input = helpers.loadInput(helpers.getInputPath(self.year, self.day, self.part))
     
     def validate(self):
         if self.year == 0:
