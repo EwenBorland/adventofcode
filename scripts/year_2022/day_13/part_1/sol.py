@@ -7,14 +7,14 @@ def parseAsTuples(input):
 
 def compareIntInt(l,r):
     if l == r:
-        print(f'II: Compare {l} vs {r}, F F')
+        # print(f'II: Compare {l} vs {r}, F F')
         return False, False
-    print(f'II: Compare {l} vs {r}, ? T')
+    # print(f'II: Compare {l} vs {r}, ? T')
     return r > l, True
 
 def compareListList(l,r):
     lenl, lenr = len(l), len(r)
-    print(f'LL: Compare {l} vs {r}')
+    # print(f'LL: Compare {l} vs {r}')
     for pair in zip(l,r):
         a, b = checkInts(pair[0],pair[1])
         if a and b:
@@ -57,7 +57,7 @@ def solution(input):
     pairs = parseAsTuples(input)
     for count, pair in enumerate(pairs,1):
         correct, _ = compareLR(pair[0],pair[1])
-        print(f"count: {count}, correct: {correct}")
+        # print(f"count: {count}, correct: {correct}")
         if correct:
             sumOfCorrectIndices += count
 
