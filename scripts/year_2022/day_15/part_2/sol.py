@@ -20,29 +20,44 @@ def taxiDistance(point1X, point1Y, point2X, point2Y):
 
     return xDistance+yDistance
 
+def gapInRanges(ranges,limit):
+    currentIndex = 0
+    found = False
+    while currentIndex < limit:
+        for c, r in enumerate(ranges):
+            found = True
+            r0, r1 = min(r), max(r)
+            if r0 <= currentIndex and r1 >= currentIndex:
+                currentIndex = r1 + 1
+                ranges.pop(c)
+                found = False
+                break
+        if found:
+            return True, currentIndex
+    return False, 0
+
+
 def solution(input, limit=4000000):
-    caveMap = [[i for i in range(limit)] for _ in range(limit)]
+    caveMap = [[] for _ in range(limit)]
 
     for line in input:
         sensorX, sensorY, beaconX, beaconY = parseLine(line) 
         print(f'starting line : {line}')
         beaconDistance = taxiDistance(sensorX, sensorY, beaconX, beaconY)
-
-        for y in range(-beaconDistance, beaconDistance, 1):
-            if sensorY+y >= limit:
+    
+        for by in range(-beaconDistance, beaconDistance, 1):
+            y = sensorY + by
+            if y < 0 or y >= limit:
                 continue
-            xVariance = beaconDistance - abs(y)
-            for x in range(-xVariance, xVariance, 1):
-                if sensorX+x >= limit:
-                    continue
-                removeFromMap(caveMap, sensorY+y, sensorX+x)
+            xVariance = beaconDistance - abs(by)
+
+            caveMap[y].append([sensorX-xVariance, sensorX+xVariance])
+
     
     for c, r in enumerate(caveMap):
-        beaconX, beaconY
-        if len(r) != 0:
-            beaconY = c+1
-            beaconX = r[0]
-            print(f'found beacon at [{beaconX}, {beaconY}]')
-            break
+        found, index = gapInRanges(r, limit)
+        if found:
+            print(f'found not beacon at [{index}, {c}]')
+            return (index*4000000) + c
 
-    return (beaconX*4000000) + beaconY
+    return 0
